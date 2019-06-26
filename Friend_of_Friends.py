@@ -1,12 +1,4 @@
-"""
-With the popularity of social networks these days, we often want to check if 
-someone knows someone who knows someone else.  Here we see a simple graph with 
-Alice having 3 friends Christine, Elise, and Zardoz.  Henry has 3 friends also, 
-Bob, Dan, and Zardoz, but is not direct friends with Alice.  Henry is however a 
-Friend of a Friend.of Alice. Friendship is a two-way street.  
-If A is a friend of B, then B is a friend of A.
-"""
-
+# Define Person class
 class Person(object):
 
   def __init__(self, unique_id, name, friends=None):
@@ -35,7 +27,7 @@ class Person(object):
 def FriendOfFriend(user_a, user_b):
   friends_of_a = user_a.GetFriends()
   for friend in friends_of_a.values():
-    print(friend.GetID())
+    print(str(friend.GetID()) + ": " + friend.GetName())
     if friend.IsFriend(user_b):
       return True    
   return False      
